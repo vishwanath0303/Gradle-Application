@@ -25,8 +25,8 @@ repositories {
 docker {
 	name "simple-gradle-java-app"
 	dockerfile file('src/docker/Dockerfile')
-	copySpec.from(jar).rename(".*",".jar")
-	buildArgs(['JAR_FILE': "simple-gradle-java-app.tar"])
+	copySpec.from(tar).rename(".*",".tar")
+	buildArgs(['TAR_FILE': "simple-gradle-java-app.tar"])
 }
 
 dependencies {
