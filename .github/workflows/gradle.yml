@@ -30,6 +30,6 @@ build:
       password: ${{ secrets.DOCKER_PASSWORD }}
   - name: Docker Build and run
     run: |
-      docker build -t vkulkarni0303/onlinebookstore .
+      docker build -t vkulkarni0303/simple-gradle-java-app .
       docker images -a
-      docker push vkulkarni0303/onlinebookstore:latest
+      docker push vkulkarni0303/simple-gradle-java-app:latest
