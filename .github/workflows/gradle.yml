@@ -6,28 +6,28 @@ permissions:
 contents: read
 
 jobs:
-build:
+  build:
 
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  steps:
-  - uses: actions/checkout@v3
-  - name: Set up JDK 17
-    uses: actions/setup-java@v3
-    with:
-      java-version: '17'
-      distribution: 'temurin'
-  - name: Build with Gradle
-    uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-    with:
-      arguments: build
-  - name: Login to Dockerhub
-    uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
-    with:
-      username: ${{ secrets.DOCKER_USERNAME }}
-      password: ${{ secrets.DOCKER_PASSWORD }}
-  - name: Docker Build and run
-    run: |
-      docker build -t vkulkarni0303/simple-gradle-java-app .
-      docker images -a
-      docker push vkulkarni0303/simple-gradle-java-app:latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        with:
+          arguments: build
+      - name: Login to Dockerhub
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Docker Build and run
+        run: |
+           docker build -t vkulkarni0303/simple-gradle-java-app .
+           docker images -a
+           docker push vkulkarni0303/simple-gradle-java-app:latest
