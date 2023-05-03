@@ -29,8 +29,4 @@ jobs:
          with:
            username: ${{ secrets.DOCKER_USERNAME }}
            password: ${{ secrets.DOCKER_PASSWORD }}
-       - name: Docker Build and run
-         run: |
-            docker build -t vkulkarni0303/simple-gradle-java-app .
-            docker images -a
-            docker push vkulkarni0303/simple-gradle-java-app:latest
+ 
