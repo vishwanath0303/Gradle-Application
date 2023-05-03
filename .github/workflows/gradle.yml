@@ -22,7 +22,7 @@ jobs:
        - name: Unzip the target folder
          run: |
            unzip ./build/distributions/simple-gradle-java-app.zip
-           cp ${{ github.workspace }}/build/distributions/simple-gradle-java-app/lib/simple-gradle-java-app.jar ${{ github.workspace }}/
+           cp ./simple-gradle-java-app/lib/simple-gradle-java-app.jar ${{ github.workspace }}/
                
        - name: Login to Dockerhub
          uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
