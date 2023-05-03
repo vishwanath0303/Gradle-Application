@@ -22,12 +22,6 @@ repositories {
     jcenter()
 }
 
-docker {
-	name "simple-gradle-java-app"
-	dockerfile file('src/docker/Dockerfile')
-	copySpec.from(tar).rename(".*",".tar")
-	buildArgs(['TAR_FILE': "simple-gradle-java-app.tar"])
-}
 
 dependencies {
     // This dependency is used by the application.

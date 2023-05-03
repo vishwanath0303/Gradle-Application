@@ -20,6 +20,10 @@ jobs:
          uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
          with:
            arguments: build
+       - name: Unzip the target folder
+         run: |
+           unzip ./distributions/simple-gradle-java-app.zip
+               
        - name: Login to Dockerhub
          uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
          with:
